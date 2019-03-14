@@ -7,4 +7,9 @@ class ClientesModel extends CI_Model{
         $query = $this->db->get('clientes');
         return $query->result();
     }
+    public function addCliente($dados){
+        if($dados!=null){
+           $this->db->insert('clientes',$dados);
+        }
+    }
 }
