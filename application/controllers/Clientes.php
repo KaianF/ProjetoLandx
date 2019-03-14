@@ -18,10 +18,17 @@ class Clientes extends CI_Controller {
 		if($_SERVER['REQUEST_METHOD'] == 'POST') { // aqui é onde vai decorrer a chamada se houver um *request* POST
 			$clientes =$this;
 			$clientes->adicionarCli($_POST);
-			redirect();
+			header("Refresh:0");
+			
 		}
 	}
-	
+	public function update($id){
+		$this->load->model('ClientesModel','clientes');
+		$query = $this->clientes->getClienteById($id);
+
+		$dados['cliente'] = $query;
+		$this->load->view('update',$dados);
+	}
 	public function adicionarCli(){
 		$this->load->model('ClientesModel','clientes');
 
