@@ -52,7 +52,7 @@ defined('BASEPATH') or exit('No direct script acess allowed');
                     <i class="plus icon"></i>
                 </div>
 
-                <div class="hidden content" >
+                <div class="hidden content">
                     Adicionar
                 </div>
             </div>
@@ -62,15 +62,15 @@ defined('BASEPATH') or exit('No direct script acess allowed');
                     Adicionar um novo cliente
                 </div>
                 <div class="description">
-                    <form class="ui form formulario" method="post">
+                    <form class="ui form formulario" method="post" >
                         <div class="two fields">
                             <div class="field">
                                 <label>Nome</label>
                                 <input name="nome" maxlength="20" type="text" placeholder="Nome">
                             </div>
                             <div class="field">
-                                <label>Sobrenome</label>
-                                <input name="email" maxlength="20" type="text" placeholder="Sobrenome">
+                                <label>Email</label>
+                                <input name="email" maxlength="100" type="email" placeholder="Email">
                             </div>
                         </div>
                         <div class="field">
@@ -84,7 +84,7 @@ defined('BASEPATH') or exit('No direct script acess allowed');
                             </div>
                             <div class="five field">
                                 <label>CPF</label>
-                                <input type="text" maxlength="20" name="cnpf" placeholder="CPF ou CNPJ:">
+                                <input type="number" step="1" maxlength="20" name="cnpf" placeholder="sem traços ou">
                             </div>
                             <div class="field">
                                 <label>Responsável pela venda</label>
@@ -95,10 +95,11 @@ defined('BASEPATH') or exit('No direct script acess allowed');
                             <label>Observações</label>
                             <input type="text" maxlength="100" name="outros" placeholder="Max 100 caracteres">
                         </div>
+                        <div class="ui error message"></div>
                         <div class="ui red deny button">
                             Cancelar
                         </div>
-                        <button class="ui positive right labeled icon button" type="submit">
+                        <button class="ui positive right labeled icon button" onclick="validaForm()">
                             Adicionar
                             <i class="checkmark icon"></i>
                         </button>
@@ -113,6 +114,68 @@ defined('BASEPATH') or exit('No direct script acess allowed');
                 })
                     .modal('show')
 
+            }
+            function validaForm() {
+                $('.ui.form')
+                    .form({
+                        fields: {
+                            nome: {
+                                identifier: 'nome',
+                                rules: [
+                                    {
+                                        type: 'empty',
+                                        prompt: 'Por favor digite seu nome'
+                                    }
+                                ]
+                            },
+                            email: {
+                                identifier: 'email',
+                                rules: [
+                                    {
+                                        type: 'email',
+                                        prompt: 'Por favor digite um email válido'
+                                    }
+                                ]
+                            },
+                            endereco: {
+                                identifier: 'endereco',
+                                rules: [
+                                    {
+                                        type: 'empty',
+                                        prompt: 'Por favor digite seu endereço'
+                                    }
+                                ]
+                            },
+                            telefone: {
+                                identifier: 'telefone',
+                                rules: [
+                                    {
+                                        type: 'empty',
+                                        prompt: 'Por favor, digite seu numero de telefone'
+                                    }
+                                ]
+                            },
+                            cnpf: {
+                                identifier: 'cnpf',
+                                rules: [
+                                    {
+                                        type: 'empty',
+                                        prompt: 'Por favor digite seu numero de cpf ou cnpj sem acentos ou pontos'
+                                    },
+                                ]
+                            },
+                            respovend: {
+                                identifier: 'respovend',
+                                rules: [
+                                    {
+                                        type: 'empty',
+                                        prompt: 'Escreva o nome do responsável pela venda'
+                                    }
+                                ]
+                            }
+                        }
+                    })
+                    ;
             }
         </script>
 
