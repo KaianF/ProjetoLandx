@@ -12,4 +12,10 @@ class ClientesModel extends CI_Model{
            $this->db->insert('clientes',$dados);
         }
     }
+    public function getClientePorId($id){
+        $this->db->where('id',$id);
+        $this->db->limit(1);
+        $query = $this->db->get("clientes");
+        return $query->row();
+    }
 }

@@ -17,107 +17,60 @@ defined('BASEPATH') or exit('No direct script acess allowed');
 </head>
 
 <body>
+    <?php
+    echo'<pre>'
+    print_r($cliente);
+    echo '</pre>'
+    ?>
+
     <div class="wrapper">
-        <div class="lista">
-            <h1>Lista de clientes</h1>
-            <table class="ui unstackable table">
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Email</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <?php $index = 0;
-                foreach ($clientes as $cliente) {
-                    echo '<tbody>';
-                    echo '<tr>';
-                    echo '    <td>' . $cliente->nome . '</td>';
-                    echo '    <td>' . $cliente->email . '</td>';
-                    echo '    <td class="right aligned">
-                <div class="icons">
-                    <i class="edit outline icon"></i>
-                    <i class="info circle icon"></i>
-                    <i class="x icon"></i>
+        Adicionar um novo cliente
+        <form class="ui form formulario" method="post">
+            <div class="two fields">
+                <div class="field">
+                    <label>Nome</label>
+                    <input name="nome" maxlength="20" type="text" placeholder="Nome">
                 </div>
-                </td>';
-                    echo '</tr>';
-                    echo '</tbody>';
-                }
-                ?>
-            </table>
-
-            <div class="adiciona ui animated fade green button teste" onclick="modalInsere()">
-                <div class="visible content">
-                    <i class="plus icon"></i>
-                </div>
-
-                <div class="hidden content" >
-                    Adicionar
+                <div class="field">
+                    <label>Sobrenome</label>
+                    <input name="email" maxlength="20" type="text" placeholder="Sobrenome">
                 </div>
             </div>
-            <div class="ui modal">
-                <i class="close icon"></i>
-                <div class="header">
-                    Adicionar um novo cliente
+            <div class="field">
+                <label>Endereço de cobrança</label>
+                <input name="endereco" maxlength="100" type="text" placeholder="Endereço">
+            </div>
+            <div class="three fields">
+                <div class="field">
+                    <label>Telefone</label>
+                    <input type="text" name="telefone" maxlength="20" placeholder="Tel:">
                 </div>
-                <div class="description">
-                    <form class="ui form formulario" method="post">
-                        <div class="two fields">
-                            <div class="field">
-                                <label>Nome</label>
-                                <input name="nome" maxlength="20" type="text" placeholder="Nome">
-                            </div>
-                            <div class="field">
-                                <label>Sobrenome</label>
-                                <input name="email" maxlength="20" type="text" placeholder="Sobrenome">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label>Endereço de cobrança</label>
-                            <input name="endereco" maxlength="100" type="text" placeholder="Endereço">
-                        </div>
-                        <div class="three fields">
-                            <div class="field">
-                                <label>Telefone</label>
-                                <input type="text" name="telefone" maxlength="20" placeholder="Tel:">
-                            </div>
-                            <div class="five field">
-                                <label>CPF</label>
-                                <input type="text" maxlength="20" name="cnpf" placeholder="CPF ou CNPJ:">
-                            </div>
-                            <div class="field">
-                                <label>Responsável pela venda</label>
-                                <input type="text" maxlength="20" name="respovend" placeholder="exemplo:Kaian Ferreira">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label>Observações</label>
-                            <input type="text" maxlength="100" name="outros" placeholder="Max 100 caracteres">
-                        </div>
-                        <div class="ui red deny button">
-                            Cancelar
-                        </div>
-                        <button class="ui positive right labeled icon button" type="submit">
-                            Adicionar
-                            <i class="checkmark icon"></i>
-                        </button>
-                    </form>
+                <div class="five field">
+                    <label>CPF</label>
+                    <input type="text" maxlength="20" name="cnpf" placeholder="CPF ou CNPJ:">
+                </div>
+                <div class="field">
+                    <label>Responsável pela venda</label>
+                    <input type="text" maxlength="20" name="respovend" placeholder="exemplo:Kaian Ferreira">
                 </div>
             </div>
-        </div>
-        <script>
-            function modalInsere() {
-                $('.ui.modal').modal({
-                    blurring: true
-                })
-                    .modal('show')
+            <div class="field">
+                <label>Observações</label>
+                <input type="text" maxlength="100" name="outros" placeholder="Max 100 caracteres">
+            </div>
+            <div class="ui red deny button">
+                Cancelar
+            </div>
+            <button class="ui positive right labeled icon button" type="submit">
+                Adicionar
+                <i class="checkmark icon"></i>
+            </button>
+        </form>
+    </div>
+    </div>
+    </div>
+    <script>
 
-            }
-        </script>
+</body >
 
-
-
-</body>
-
-</html>
+</html >

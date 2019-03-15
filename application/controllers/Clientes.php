@@ -23,8 +23,8 @@ class Clientes extends CI_Controller {
 		}
 	}
 	public function update($id){
-		$this->load->model('ClientesModel','clientes');
-		$query = $this->clientes->getClienteById($id);
+		$this->load->model('ClientesModel','cliente');
+		$query = $this->clientes->getClientePorId($id);
 
 		$dados['cliente'] = $query;
 		$this->load->view('update',$dados);
@@ -43,6 +43,7 @@ class Clientes extends CI_Controller {
 		$this->clientes->addCliente($dados);
 		
 	}
+
 
 }
 

@@ -36,7 +36,7 @@ defined('BASEPATH') or exit('No direct script acess allowed');
                     echo '    <td>' . $cliente->email . '</td>';
                     echo '    <td class="right aligned">
                 <div class="icons">
-                    <i class="edit outline icon"></i>
+                    <i class="edit outline icon"><a href="/ProjetoLandx/update/'.$cliente->Id.'"/a></i>
                     <i class="info circle icon"></i>
                     <i class="x icon"></i>
                 </div>
