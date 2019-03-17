@@ -16,11 +16,12 @@
 table {
     overflow-x: scroll;
     height: 200px;
+    border: 1;
 }
 
 .icons {
     display: flex;
-    font-size: 20px;
+    justify-content: center;
     cursor: pointer;
 }
 
@@ -37,4 +38,33 @@ table {
 }
 .teste{
     width: 15vh;
+}
+.icons a{
+    font-size: 4vh;
+    text-decoration: none;
+    color: inherit;
+    margin: 15px;
+}
+.formAtualizar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.certeza{
+    background-color: red;
+}
+.confirma{
+ margin: 14px;
+}
+.detalhes{
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+.detalhes .item{
+    font-size: 5vh;
+}
+.detalhes .button{
+    font-size: 2.5vh;
+    width: 100%;
 }
